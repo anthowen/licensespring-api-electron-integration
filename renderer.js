@@ -8,7 +8,7 @@ const axios = require("axios");
 const sharedKey = "Qc8EdU7DY-gMI87-JMueZWXdtJ0Ek_hS6dGC_SwusO8",
     apiKey = "afce72fb-9fba-406e-8d19-ffde5b0a7cad",
     productCode = "PR",
-    baseURL = "https://api.licensespring.com/api/v3/webhook";
+    baseURL = "https://api.licensespring.com/api/v3/webhook/";
 
 const GenerateHeaders = () => {
     const signingDate = new Date().toUTCString(),
@@ -32,7 +32,7 @@ const getLicenses = async productQuantity => {
     const headers = GenerateHeaders();
 
     const response = await axios.get(
-        baseURL + "/license" + `?product=${productCode}&quantity=${productQuantity}`,
+        baseURL + `license?product=${productCode}&quantity=${productQuantity}`,
         {
             headers: headers
         }
@@ -44,11 +44,11 @@ const orderLicenses = async () => {
     const headers = GenerateHeaders();
 
     const response = await axios.post(
-        baseURL + "/order", 
+        baseURL + `order`, 
         {
             "id": "id_1546606209296",
             "items": [{
-                "product_code": "TT",
+                "product_code": "QQ",
                 "licenses": [{
                     "user": {
                         "email": "end-user@gmail.com"
